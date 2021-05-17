@@ -1,0 +1,1 @@
+# Ansible-Hadoop-Hive-Role
