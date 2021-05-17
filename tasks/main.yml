@@ -1,0 +1,58 @@
+---
+# tasks file for hadoop_hive
+- name: "Checking if Hive already Setup"
+  command: "hive --version"
+  ignore_errors: true
+  changed_when: false
+  register: hive_setup_check
+
+- debug:
+        msg: "Hive is already Setup on your system"
+  when: hive_setup_check.rc == 0
+
+
+- debug:
+        msg: "Hive is currently not setup on your system"
+  when: hive_setup_check.rc != 0
+
+- name: "Checking if Hive software is present locally at specified location"
+  command: "ls -a {{ Hive_Software_Directory }}{{ Hive_Software_Version }}"
+  register: hive_local_check_status
+  changed_when: false
+  ignore_errors: true
+
+- debug:
+        msg: "Hive Software Present locally at specified location"
+  when: hive_local_check_status.rc == 0
+
+- debug:
+        msg: "Hive Software not Present locally at specified location"
+  when: hive_local_check_status.rc != 0
+- name: "Creating Software Directory for Hive at Specified Location"
+  file:
+          state: directory
+          path: "{{ Hive_Software_Directory }}"
+  when: hive_setup_check.rc != 0 and hive_local_check_status.rc != 0
+- name: "Downloading Hive Software and Extracting it to Specified Location"
+  ansible.builtin.unarchive:
+          src: "{{ Hive_Software_Download_Url }}"
+          dest: "{{ Hive_Software_Directory }}"
+          remote_src: yes
+  when: hive_setup_check.rc != 0 and hive_local_check_status.rc != 0
+- name: "Creating Hive Workspace"
+  file:
+          state: directory
+          path: "{{ Hive_Workspace_Directory }}"
+  when: hive_setup_check.rc != 0
+- name: "Setting Hive Environmental Variables"
+  shell: "{{ item }}"
+  loop:
+          - "export HIVE_HOME={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/"
+          - "export PATH={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/bin/:$PATH"
+- name: "Making Environmental Variables Permanent after reboot"
+  blockinfile:
+    path: /root/.bashrc
+    content: |
+            export HIVE_HOME={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/
+            export PATH={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/bin/:$PATH
+
