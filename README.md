@@ -6,18 +6,19 @@ An Ansible Role to Configure and setup [Hive](https://hive.apache.org/) Data War
 
 Requirements
 ------------
-This role is dependent upon `shubhambhardwaj007.ansible_hadoop_software_installation_role`.
-For a full usage example with the `shubhambhardwaj007.ansible_hadoop_software_installation_role` role, see the Example Playbook later in this README.
+This role is dependent upon `shubhambhardwaj007.hadoop_software_installation`.
+For a full usage example with the `shubhambhardwaj007.hadoop_software_installation` role, see the Example Playbook later in this README.
 
 Role Variables
 --------------
 Available variables are listed below, along with default values (see vars/main.yml):
 ```
- Name_Node_Hdfs_Port: "9001"
- Job_Tracker_Mapreduce_Port: "9002"
-```
-The `Name_Node_Hdfs_Port` should be similar to exposed port by Hadoop Master Node.The `Job_Tracker_Mapreduce_Port` should be similar to exposed port by Hadoop Job Tracker Node.
+Hive_Software_Directory: "/root/hive_software/"
+Hive_Software_Version: "apache-hive-0.13.1-bin"
+Hive_Software_Download_Url: "https://archive.apache.org/dist/hive/hive-0.13.1/apache-hive-0.13.1-bin.tar.gz"
+Hive_Workspace_Directory: "/root/hive_workspace"
 
+```
 Dependencies
 ------------
 None
