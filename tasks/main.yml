@@ -45,7 +45,7 @@
           path: "{{ Hive_Workspace_Directory }}"
   when: hive_setup_check.rc != 0
 - name: "Setting Hive Environmental Variables"
-  shell: "{{ item }}"
+  command: "{{ item }}"
   loop:
           - "export HIVE_HOME={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/"
           - "export PATH={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/bin/:$PATH"

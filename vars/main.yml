@@ -4,4 +4,3 @@ Hive_Software_Directory: "/root/hive_software/"
 Hive_Software_Version: "apache-hive-0.13.1-bin"
 Hive_Software_Download_Url: "https://archive.apache.org/dist/hive/hive-0.13.1/apache-hive-0.13.1-bin.tar.gz"
 Hive_Workspace_Directory: "/root/hive_workspace"
-
