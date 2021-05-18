@@ -1,8 +1,8 @@
-<a href="https://hadoop.apache.org/"><img src="images/Hadoop_logo.svg" width="100%" height="100%"></a>
+<a href="https://hive.apache.org/"><img src="images/Apache_Hive_logo.jpg" width="100%" height="100%"></a>
 
-# Ansible-Hadoop-ClientNode-Role
+# Ansible-Hadoop-Hive-Role
 
-An Ansible Role to Configure and setup [Hadoop](https://hadoop.apache.org/) Client Node.
+An Ansible Role to Configure and setup [Hive](https://hive.apache.org/) Data WareHouse on Client Node.
 
 Requirements
 ------------
@@ -28,7 +28,7 @@ Example Playbook
  - hosts: client_node
    roles:
      - shubhambhardwaj007.ansible_hadoop_software_installation_role
-     - shubhambhardwaj007.ansible_hadoop_clientNode_role
+     - shubhambhardwaj007.hive
 ```
 License
 -------
@@ -37,4 +37,4 @@ GNU
 
 Author Information
 ------------------
-This role was created in 2021 by [Shubham Bhardwaj](https://galaxy.ansible.com/shubhambhardwaj007/hadoop_clientnode)
+This role was created in 2021 by [Shubham Bhardwaj](https://galaxy.ansible.com/shubhambhardwaj007/hive)
