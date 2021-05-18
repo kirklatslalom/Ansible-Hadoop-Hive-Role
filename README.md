@@ -1,4 +1,4 @@
-<a href="https://hive.apache.org/"><img src="images/hive_logo_medium.jpg" width="100%" height="100%"></a>
+<a href="https://hive.apache.org/"><img src="images/hive_logo_medium.jpg" width="50%" height="50%"></a>
 
 # Ansible-Hadoop-Hive-Role
 
