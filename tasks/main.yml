@@ -53,7 +53,7 @@
 - name: ensure .bashrc file exists
   copy:
     content: ""
-    dest: /home/ansible/.bashrc
+    dest: /home/ubuntu/.bashrc
     force: false
     group: ubuntu
     owner: ubuntu
