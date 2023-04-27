@@ -53,7 +53,7 @@
 - name: Touch /home/ansible/.bashrc
   ansible.builtin.file:
     path: /home/ansible/.bashrc
-    state: touch
+    state: create
 
 - name: "Making Environmental Variables Permanent after reboot"
   blockinfile:
