@@ -1,8 +1,9 @@
 galaxy_info:
-  author: Shubham Bhardwaj
+  author: Kirk Larsen
   description: An Ansible Role to Configure and setup Hadoop Hive Data Warehouse software on Client Node.
-  company: Student
+  company: Slalom
   role_name: hive
+  namespace: kirklatslalom
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
