@@ -50,6 +50,11 @@
 #          - "export HIVE_HOME={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/"
 #          - "export PATH={{ Hive_Software_Directory }}{{ Hive_Software_Version }}/bin/:$PATH"
 
+- name: Touch /home/ansible/.bashrc
+  ansible.builtin.file:
+    path: /home/ansible/.bashrc
+    state: touch
+
 - name: "Making Environmental Variables Permanent after reboot"
   blockinfile:
     path: /home/ansible/.bashrc
