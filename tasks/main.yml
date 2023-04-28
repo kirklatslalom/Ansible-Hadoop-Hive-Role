@@ -36,6 +36,7 @@
   ansible.builtin.file:
     state: directory
     path: "{{ hive_software_directory }}"
+    mode: '0644'
   when: hive_setup_check.rc != 0 and hive_local_check_status.rc != 0
 
 - name: "Downloading Hive Software and Extracting it to Specified Location"
@@ -49,6 +50,7 @@
   ansible.builtin.file:
     state: directory
     path: "{{ hive_workspace_directory }}"
+    mode: '0644'
   when: hive_setup_check.rc != 0
 
 # - name: "Setting Hive Environmental Variables"
