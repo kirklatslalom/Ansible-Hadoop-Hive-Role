@@ -1,6 +1,6 @@
 ---
 # vars file for hadoop_hive
-Hive_Software_Directory: "/home/ubuntu/hive_software/"
-Hive_Software_Version: "apache-hive-3.1.3-bin"
-Hive_Software_Download_Url: "https://archive.apache.org/dist/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
-Hive_Workspace_Directory: "/home/ubuntu/hive_workspace"
+hive_software_directory: "/home/ubuntu/hive_software/"
+hive_software_version: "apache-hive-3.1.3-bin"
+hive_software_download_Url: "https://archive.apache.org/dist/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
+hive_sorkspace_directory: "/home/ubuntu/hive_workspace"
