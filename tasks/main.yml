@@ -5,10 +5,14 @@
   ignore_errors: true
   changed_when: false
   register: hive_setup_check
-- ansible.builtin.debug:
+
+- name: Check if Hive is setup (1/5)
+  ansible.builtin.debug:
         msg: "Hive is already Setup on your system"
   when: hive_setup_check.rc == 0
-- ansible.builtin.debug:
+
+- name: Check if Hive is setup (2/5)
+  ansible.builtin.debug:
         msg: "Hive is currently not setup on your system"
   when: hive_setup_check.rc != 0
 
@@ -17,10 +21,13 @@
   register: hive_local_check_status
   changed_when: false
   ignore_errors: true
+
+- name: Check if Hive is setup (4/5)
 - ansible.builtin.debug:
         msg: "Hive Software Present locally at specified location"
   when: hive_local_check_status.rc == 0
 
+- name: Check if Hive is setup (5/5)
 - ansible.builtin.debug:
         msg: "Hive Software not Present locally at specified location"
   when: hive_local_check_status.rc != 0
