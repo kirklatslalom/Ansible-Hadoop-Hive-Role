@@ -1,27 +1,27 @@
 ---
 # tasks file for hadoop_hive
 - name: "Checking if Hive already Setup"
-  command: "hive --version"
+  ansible.builtin.command: "hive --version"
   ignore_errors: true
   changed_when: false
   register: hive_setup_check
-- debug:
+- ansible.builtin.debug:
         msg: "Hive is already Setup on your system"
   when: hive_setup_check.rc == 0
-- debug:
+- ansible.builtin.debug:
         msg: "Hive is currently not setup on your system"
   when: hive_setup_check.rc != 0
 
 - name: "Checking if Hive software is present locally at specified location"
-  command: "ls -a {{ Hive_Software_Directory }}{{ Hive_Software_Version }}"
+  ansible.builtin.command: "ls -a {{ Hive_Software_Directory }}{{ Hive_Software_Version }}"
   register: hive_local_check_status
   changed_when: false
   ignore_errors: true
-- debug:
+- ansible.builtin.debug:
         msg: "Hive Software Present locally at specified location"
   when: hive_local_check_status.rc == 0
 
-- debug:
+- ansible.builtin.debug:
         msg: "Hive Software not Present locally at specified location"
   when: hive_local_check_status.rc != 0
 
