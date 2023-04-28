@@ -3,4 +3,4 @@
 hive_software_directory: "/home/ubuntu/hive_software/"
 hive_software_version: "apache-hive-3.1.3-bin"
 hive_software_download_url: "https://archive.apache.org/dist/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
-hive_sorkspace_directory: "/home/ubuntu/hive_workspace"
+hive_workspace_directory: "/home/ubuntu/hive_workspace"
