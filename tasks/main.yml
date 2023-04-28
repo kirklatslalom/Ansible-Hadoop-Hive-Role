@@ -64,10 +64,10 @@
     force: false
     group: ubuntu
     owner: ubuntu
-    mode: 0600
+    mode: o+rwx
 
 - name: Make Environmental Variables Permanent after reboot
-  blockinfile:
+  ansible.builtin.blockinfile:
     path: /home/ubuntu/.bashrc
     content: |
             export HIVE_HOME={{ hive_software_directory }}{{ hive_software_version }}/
