@@ -6,19 +6,19 @@
   changed_when: false
   register: hive_setup_check
 
-- name: Create Software Directory for Hive at Specified Location
+- name: Create software directory for Hive at the specified Location
   ansible.builtin.file:
     state: directory
     path: "{{ hive_software_directory }}"
     mode: '0644'
   when: hive_setup_check != 0
 
-- name: Create Hive Workspace
+- name: Create Hive workspace
   ansible.builtin.file:
     state: directory
     path: "{{ hive_workspace_directory }}"
     mode: '0644'
-  when: hive_setup_check.rc != 0
+  when: hive_setup_check.RC != 0
 
 - name: Ensure .bashrc file exists
   ansible.builtin.copy:
@@ -29,12 +29,12 @@
     owner: ubuntu
     mode: o+rwx
 
-- name: Download Hive Software and Extracting it to Specified Location
+- name: Download Hive software and extract it to the specified Location
   ansible.builtin.unarchive:
     src: "{{ hive_software_download_url }}"
     dest: "{{ hive_software_directory }}"
     remote_src: true
-  when: hive_setup_check.rc != 0
+  when: hive_setup_check.RC != 0
 
 - name: Make Environmental Variables Permanent after reboot
   ansible.builtin.blockinfile:
